@@ -1,3 +1,10 @@
-import {func} from './dependency';
+import React from "react";
+import ReactDOM from "react-dom";
 
-func();
+let rootWelcomeCreateElement = React.createElement(
+    "h1",
+    { style: { color: "green" } },
+    'ESB ЕПТЫ!'
+  );
+  const rootElement = document;
+  ReactDOM.render(rootWelcomeCreateElement, rootElement);
