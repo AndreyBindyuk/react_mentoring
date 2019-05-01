@@ -1,12 +1,14 @@
 import React from 'react';
-import MovieContainer from './containers/MovieContainer';
+import {Header, Body, Footer}  from './frameImpl/*'
 
 class App extends React.Component{
     render(){
         return(
             <div>
             <h1>Hello React!</h1>
-            <MovieContainer />
+            <Header />
+            <Body />
+            <Footer />
             </div>
         );
     }
