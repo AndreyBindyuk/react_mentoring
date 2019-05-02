@@ -1,11 +1,12 @@
 import React from 'react';
-import {Header, Body, Footer}  from './frameImpl/*'
+import Header  from './frameImpl/Header';
+import Body  from './frameImpl/Body';
+import Footer  from './frameImpl/Footer';
 
 class App extends React.Component{
     render(){
         return(
             <div>
-            <h1>Hello React!</h1>
             <Header />
             <Body />
             <Footer />

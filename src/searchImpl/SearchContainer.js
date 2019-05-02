@@ -1,5 +1,7 @@
 import React from 'react';
-import {SearchButton, SearchField, SearchFilter} from './*';
+import SearchButton from './SearchButton';
+import SearchField from './SearchField';
+import SearchFilter from './SearchFilter';
 
 class SearchContainer extends React.Component{
     render(){
