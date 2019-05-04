@@ -1,9 +1,12 @@
 import React from 'react';
+import SearchContainer from "../searchImpl/SearchContainer";
 
 class Header extends React.Component{
     render(){
         return(
-            <h1>Header Component</h1>
+            <div>
+            <SearchContainer />
+            </div>
         );
     }
 }
