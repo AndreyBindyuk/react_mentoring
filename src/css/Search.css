@@ -5,10 +5,9 @@
     height: 200px;
 }
 
-.search-container-name-style{
-    background-color: red;
-    width: 5%;
-    margin: 20px;
+.search-container-picture-style{
+    max-width:10%;
+  max-height:10%;
 }
 
 .search-container-input-style{

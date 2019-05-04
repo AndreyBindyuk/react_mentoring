@@ -7,9 +7,7 @@ class SearchContainer extends React.Component{
         console.log(mainLogo);
         return(
             <div className="search-container">
-            <div className="search-container-name-style">
-            <img src={mainLogo} alt="fireSpot"/>
-            </div>
+            <img className="search-container-picture-styl" src={mainLogo}/>
             <input className="search-container-input-style" type="input"/>
             <div className="search-container-button-style">
             <div className="search-container-search-by-button-style">
