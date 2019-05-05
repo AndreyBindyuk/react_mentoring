@@ -1,23 +1,25 @@
 import React from 'react';
 import "../css/Search.css";
-import mainLogo from'../movie_pic.png';
+import mainLogo from '../movie_pic.png';
 
-class SearchContainer extends React.Component{
-    render(){
+class SearchContainer extends React.Component {
+    render() {
         console.log(mainLogo);
-        return(
+        return (
             <div className="search-container">
-            <img className="search-container-picture-styl" src={mainLogo}/>
-            <input className="search-container-input-style" type="input"/>
-            <div className="search-container-button-style">
-            <div className="search-container-search-by-button-style">
-                    <button type="button">TITLE</button>
-                    <button type="button">GENRE</button>
+                {/* <div className="logo-container"> */}
+                <img className="logo-container" src={mainLogo}/>
+                {/* </div> */}
+                <div className="input-button-container">
+                    <input className="input-container" type="input" />
+                    <div className="buttons-container">
+                        <div className="title-genre-button-container">
+                            <button><span>TITLE</span></button>
+                            <button><span>GENRE</span></button>
+                        </div>
+                        <button><span>SEARCH</span></button>
                     </div>
-                    <div>
-                    <button type="button">SEARCH</button>
                 </div>
-            </div>
             </div>
         );
     }
