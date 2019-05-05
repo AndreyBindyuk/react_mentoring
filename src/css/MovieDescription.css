@@ -1,0 +1,48 @@
+.movie-description-container{
+    display: flex;
+    flex-flow: row wrap;
+    width: 700px;
+    height: 400px;
+    background-color: blue;
+    justify-content: space-around;
+}
+
+.movie-image{
+    width: 40%;
+    height: 80%;
+    align-self: center;
+}
+
+.movie-info-container{
+display: flex;
+flex-flow: column;
+align-self: center;
+background-color: green;
+width: 55%;
+    height: 80%;
+}
+
+.search{
+align-self: flex-end;
+}
+
+.movie-details{
+    flex-flow: column wrap;
+    background-color: brown;
+}
+
+.movie-name-rating{
+    display: flex;
+    justify-content: space-between;
+}
+
+.movie-date{
+display: flex;
+flex-flow: row;
+justify-content: space-between;
+}
+
+.movie-text{
+background-color: blueviolet;
+height: 40%;
+}
