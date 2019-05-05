@@ -39,3 +39,7 @@ button > span{
     display: flex;
     flex-direction: row;
 }
+
+.btn_red{
+    background-color: red
+}
