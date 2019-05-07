@@ -1,7 +1,7 @@
 .search-container{
 display: flex;
 flex-flow: column wrap;
-height: 200px;
+height: 300px;
 margin: 25px;
 }
 
@@ -16,7 +16,7 @@ margin: 25px;
     align-self: center;
     flex-flow: column wrap;
     width: 30%;
-    height: 40%;
+    height: 45%;
 }
 
 .input-container{
@@ -40,6 +40,33 @@ button > span{
     flex-direction: row;
 }
 
-.btn_red{
-    background-color: red
+.btn {
+  border: none;
+  background-color: inherit;
+  /* padding: 14px 28px;
+  font-size: 16px; */
+  cursor: pointer;
+  display: inline-block;
+}
+
+.btn:hover {background: #eee;}
+
+.success {color: green;}
+.info {color: dodgerblue;}
+.warning {color: orange;}
+.danger {color: red;}
+.default {color: black;}
+
+.movies-search{
+    display: flex;
+    flex-direction: row;
+    height: 30%;
+    justify-content: space-between;
+}
+
+.release-rating{
+    display: flex;
+    width: 40%;
+    flex-direction: row;
+    justify-content: space-between;
 }
