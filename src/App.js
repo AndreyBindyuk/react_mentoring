@@ -1,15 +1,13 @@
 import React from 'react';
-import Header  from './frameImpl/Header';
-import Body  from './frameImpl/Body';
-import Footer  from './frameImpl/Footer';
+import MovieView  from './MovieView';
+import MainPage  from './MainPage';
 
 class App extends React.Component{
     render(){
         return(
             <div>
-            <Header />
-            <Body />
-            <Footer />
+            <MainPage />
+            {/* <MovieView /> */}
             </div>
         );
     }
