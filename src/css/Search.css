@@ -62,39 +62,6 @@ input{
     justify-content: space-between;
 }
 
-/* .title-genre-button-container{
-    display: flex;
-    width: 45%;
-    justify-content: space-around;
-} */
-
-
-
-
-
-
-/* button > span{
-    display: flex;
-    flex-direction: row;
-} */
-
-/* .btn {
-  border: none;
-  background-color: inherit;
-  padding: 14px 28px;
-  font-size: 16px;
-  cursor: pointer;
-  display: inline-block;
-} */
-
-/* .btn:hover {background: #eee;}
-
-.success {color: green;}
-.info {color: dodgerblue;}
-.warning {color: orange;}
-.danger {color: red;}
-.default {color: black;} */
-
 .movies-search-result{
     display: flex;
     flex-direction: row;
@@ -139,16 +106,20 @@ input{
     min-width: 100px;
     height: 23px;
     padding: 0 15px;
-    background: red;
+    background: rgb(255, 0, 0);
     white-space: nowrap;
     border-radius: 0;
-    font-size: 12px;
-    color: white;
+    font-size: 10px;
+    /* color: #fff; */
     transition: all .2s ease-out, color .2s ease-out;
     border: 0;
     cursor: pointer;
     font-weight: bold;
     box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.15);
+  }
+
+  .btn-red:hover {
+    background: rgb(209, 27, 27);
   }
 
   .btn-search:hover {
@@ -162,17 +133,10 @@ input{
     background: transparent;
     white-space: nowrap;
     border-radius: 0;
-    font-size: 14px;
+    font-size: 10px;
     color: gray;
     transition: all .2s ease-out, color .2s ease-out;
     border: 0;
     cursor: pointer;
     font-weight: bold;
   }
-
-/* .release-rating{
-    display: flex;
-    width: 40%;
-    flex-direction: row;
-    justify-content: space-between;
-} */

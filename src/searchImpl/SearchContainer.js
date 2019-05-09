@@ -46,10 +46,10 @@ class SearchContainer extends React.Component {
                             <span className="desc">SORT BY</span>
                             <div className="buttons-position">
                                 <button id="btn_release" className={r_red_btn}  onClick={this.changeBtnColor.bind(this, "btn_release")}>
-                                    <span>release date</span>
+                                    <span>RELEASE DATE</span>
                                 </button>
                                 <button id="btn_rating" className={r_gray_btn} onClick={this.changeBtnColor.bind(this, "btn_rating")}>
-                                    rating
+                                <span>RATING</span>
                             </button>
                             </div>
                         </div>
