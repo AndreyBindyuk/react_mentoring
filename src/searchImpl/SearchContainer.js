@@ -1,6 +1,5 @@
 import React from 'react';
 import "../css/Search.css";
-import mainLogo from '../images/logo.png';
 import MovieStub from '../movieItemImpl/MovieStub.json'
 
 class SearchContainer extends React.Component {
@@ -27,7 +26,6 @@ class SearchContainer extends React.Component {
         let r_gray_btn = this.state.btn_release_rating ? "btn-gray" : "btn-red";
         return (
             <div className="search-container">
-                <img className="logo-container" src={mainLogo} />
                 <div className="input-button-container">
                     <input className="input-container" type="input" placeholder="Search..." />
                     <div className="buttons-movies-result-container">
@@ -35,10 +33,10 @@ class SearchContainer extends React.Component {
                             <span className="desc">SEARCH BY</span>
                             <div className="buttons-position">
                                 <button id="btn_title" onClick={this.changeBtnColor.bind(this, "btn_title")} className={red_btn}>
-                                    <span>TITLE</span>
+                                    TITLE
                                 </button>
                                 <button id="btn_genre" onClick={this.changeBtnColor.bind(this, "btn_genre")} className={gray_btn}>
-                                    <span>GENRE</span>
+                                    GENRE
                                 </button>
                             </div>
                         </div>
@@ -46,10 +44,10 @@ class SearchContainer extends React.Component {
                             <span className="desc">SORT BY</span>
                             <div className="buttons-position">
                                 <button id="btn_release" className={r_red_btn}  onClick={this.changeBtnColor.bind(this, "btn_release")}>
-                                    <span>RELEASE DATE</span>
+                                    RELEASE DATE
                                 </button>
                                 <button id="btn_rating" className={r_gray_btn} onClick={this.changeBtnColor.bind(this, "btn_rating")}>
-                                <span>RATING</span>
+                                RATING
                             </button>
                             </div>
                         </div>

@@ -6,7 +6,8 @@
 }
 
 .movie-item-container {
-  display: inline-flex;
+  display: flex;
+  flex-flow:  wrap;
   margin: 50px;
   flex-flow: column nowrap;
   width: 300px;

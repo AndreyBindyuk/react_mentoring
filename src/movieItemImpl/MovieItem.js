@@ -7,8 +7,8 @@ class MovieItem extends React.Component {
   render() {
     return (
       <div key={this.props.movie.id} className="movie-item-container">
-      <figure class="image"><img alt="#" src={this.props.movie.poster_src}/></figure>
-      <div class="movie-title"><span>{this.props.movie.title}</span></div>
+      <figure className="image"><img alt="#" src={this.props.movie.poster_src}/></figure>
+      <div className="movie-title"><span>{this.props.movie.title}</span></div>
       <div className="row">
       <span>{this.props.movie.genre}</span>
       <span style={{color:"#00bbec"}}>{this.props.movie.date}</span>
