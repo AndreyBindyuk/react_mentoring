@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build:dev": "webpack --env dev ",
-    "build:prod": "webpack --env prod",
-    "dev": "webpack-dev-server --inline --hot --no-info --env dev",
+    "build:dev": "webpack --mode development",
+    "build:prod": "webpack --mode production",
+    "dev": "webpack-dev-server --inline --hot --no-info --mode development",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -19,7 +19,8 @@
     "react-router-dom": "^5.0.0",
     "react-star-rating": "^1.4.2",
     "redux": "^4.0.1",
-    "webpack": "^4.30.0"
+    "webpack": "^4.30.0",
+    "webpack-merge": "^4.2.1"
   },
   "devDependencies": {
     "@babel/core": "^7.4.4",
