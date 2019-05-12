@@ -8,3 +8,12 @@
     width: 50px;
     height: auto;
 }
+
+.footer{
+    height: 100px;
+    width: 100%;
+    background-color: rgb(187, 240, 247);
+}
+.footer span{
+    margin: 20px;
+}

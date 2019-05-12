@@ -1,9 +1,11 @@
 import React from 'react';
+import '../css/App.css';
 
 class Footer extends React.Component{
     render(){
         return(
-            <h1>Footer Component</h1>
+            <div className='footer'>
+            <span>Copyright 2019 Company name, Designed by Andrey. All rights reserved</span></div>
         );
     }
 }
