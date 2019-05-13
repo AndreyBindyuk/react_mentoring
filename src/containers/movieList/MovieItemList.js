@@ -1,7 +1,6 @@
 import React from "react";
-import MovieItem from "./MovieItem";
-import "../css/Movie.css";
-import MovieStub from './MovieStub.json'
+import MovieItem from "../../shared/movieItem/MovieItem";
+import MovieStub from '../../MovieStub.json'
 
 class MovieItemList extends React.Component {
   constructor(props) {

@@ -1,7 +1,7 @@
 import React from 'react';
-import MovieSingleView from "./movieItemImpl/MovieSingleView"
-import MovieItemList from './movieItemImpl/MovieItemList';
-import Footer  from './frameImpl/Footer';
+import MovieSingleView from "../movieSingleView/MovieSingleView"
+import MovieItemList from '../movieList/MovieItemList';
+import Footer  from '../../shared/footer/Footer';
 
 class MovieView extends React.Component{
     render(){

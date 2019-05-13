@@ -1,6 +1,6 @@
 import React from 'react';
-import "../css/Search.css";
-import MovieStub from '../movieItemImpl/MovieStub.json'
+import "./Search.css";
+import MovieStub from '../../MovieStub.json'
 
 class SearchContainer extends React.Component {
     constructor(props) {
@@ -33,10 +33,10 @@ class SearchContainer extends React.Component {
                             <span className="desc">SEARCH BY</span>
                             <div className="buttons-position">
                                 <button id="btn_title" onClick={this.changeBtnColor.bind(this, "btn_title")} className={red_btn}>
-                                    TITLE
+                                    <span>TITLE</span>
                                 </button>
                                 <button id="btn_genre" onClick={this.changeBtnColor.bind(this, "btn_genre")} className={gray_btn}>
-                                    GENRE
+                                    <span>GENRE</span>
                                 </button>
                             </div>
                         </div>
@@ -44,10 +44,10 @@ class SearchContainer extends React.Component {
                             <span className="desc">SORT BY</span>
                             <div className="buttons-position">
                                 <button id="btn_release" className={r_red_btn}  onClick={this.changeBtnColor.bind(this, "btn_release")}>
-                                    RELEASE DATE
+                                    <span>RELEASE DATE</span>
                                 </button>
                                 <button id="btn_rating" className={r_gray_btn} onClick={this.changeBtnColor.bind(this, "btn_rating")}>
-                                RATING
+                                <span>RATING</span>
                             </button>
                             </div>
                         </div>

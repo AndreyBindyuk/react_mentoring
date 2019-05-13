@@ -1,7 +1,7 @@
 import React from 'react';
-import SearchContainer from "./searchImpl/SearchContainer";
-import MovieItemList from './movieItemImpl/MovieItemList';
-import Footer  from './frameImpl/Footer';
+import SearchContainer from "../searchContainer/SearchContainer";
+import MovieItemList from '../movieList/MovieItemList';
+import Footer  from '../../shared/footer/Footer';
 
 class MainPage extends React.Component{
     render(){

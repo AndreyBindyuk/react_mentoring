@@ -1,5 +1,5 @@
 import React from 'react';
-import "../css/MovieSingleView.css";
+import "./MovieSingleView.css";
 import Rater from 'react-rater'
 import 'react-rater/lib/react-rater.css'
 
