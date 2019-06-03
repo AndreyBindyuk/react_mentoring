@@ -4,9 +4,6 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
 	context: path.join(__dirname, 'src'),
 	entry: './index.js',
-	devServer: {
-		contentBase: path.join(__dirname, 'src')
-	  },
 	module: {
 		rules: [
 		{
