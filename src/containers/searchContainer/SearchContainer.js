@@ -1,4 +1,5 @@
 import React from 'react';
+import classNames from 'classnames';
 import "./Search.css";
 import MovieStub from '../../MovieStub.json'
 
@@ -6,24 +7,20 @@ class SearchContainer extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            btn_title_genre: true,
-            btn_release_rating: true
+            btn_title_genre_red: true,
+            btn_release_rating_red: true
         }
     }
 
-    changeBtnColor(params) {
+     changeBtnColor = (params) => {
         if ((params == "btn_title" || params == "btn_genre") && document.getElementById(params).className != "btn-red") {
-            this.setState({ btn_title_genre: !this.state.btn_title_genre })
+            this.setState({ btn_title_genre_red: !this.state.btn_title_genre_red })
         } else if ((params == "btn_release" || params == "btn_rating") && document.getElementById(params).className != "btn-red") {
-            this.setState({ btn_release_rating: !this.state.btn_release_rating })
+            this.setState({ btn_release_rating_red: !this.state.btn_release_rating_red })
         }
     }
 
     render() {
-        let red_btn = this.state.btn_title_genre ? "btn-red" : "btn-gray";
-        let gray_btn = this.state.btn_title_genre ? "btn-gray" : "btn-red";
-        let r_red_btn = this.state.btn_release_rating ? "btn-red" : "btn-gray";
-        let r_gray_btn = this.state.btn_release_rating ? "btn-gray" : "btn-red";
         return (
             <div className="search-container">
                 <div className="input-button-container">
@@ -32,10 +29,10 @@ class SearchContainer extends React.Component {
                         <div className="buttons-container">
                             <span className="desc">SEARCH BY</span>
                             <div className="buttons-position">
-                                <button id="btn_title" onClick={this.changeBtnColor.bind(this, "btn_title")} className={red_btn}>
+                                <button id="btn_title" onClick={this.changeBtnColor.bind(this,"btn_title")} className={this.state.btn_title_genre_red ? "btn-red" : "btn-gray"}>
                                     <span>TITLE</span>
                                 </button>
-                                <button id="btn_genre" onClick={this.changeBtnColor.bind(this, "btn_genre")} className={gray_btn}>
+                                <button id="btn_genre" onClick={this.changeBtnColor.bind(this,"btn_genre")} className={this.state.btn_title_genre_red ? "btn-gray" : "btn-red"}>
                                     <span>GENRE</span>
                                 </button>
                             </div>
@@ -43,10 +40,10 @@ class SearchContainer extends React.Component {
                         <div className="buttons-container">
                             <span className="desc">SORT BY</span>
                             <div className="buttons-position">
-                                <button id="btn_release" className={r_red_btn}  onClick={this.changeBtnColor.bind(this, "btn_release")}>
+                                <button id="btn_release" className={this.state.btn_release_rating_red ? "btn-red" : "btn-gray"}  onClick={this.changeBtnColor.bind(this,"btn_release")}>
                                     <span>RELEASE DATE</span>
                                 </button>
-                                <button id="btn_rating" className={r_gray_btn} onClick={this.changeBtnColor.bind(this, "btn_rating")}>
+                                <button id="btn_rating" className={this.state.btn_release_rating_red ? "btn-gray" : "btn-red"} onClick={this.changeBtnColor.bind(this,"btn_rating")}>
                                 <span>RATING</span>
                             </button>
                             </div>
