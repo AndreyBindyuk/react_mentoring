@@ -6,15 +6,19 @@ class MovieItem extends React.Component {
     super(props);
   }
   render() {
-    const {id, poster_src, title, date, genre} = this.props.movie;
+    const { id, poster_src, title, date, genre } = this.props.movie;
     return (
       <div className="movie-item-container">
-      <figure className="image"><img alt="#" src={poster_src}/></figure>
-      <div className="movie-title"><span>{title}</span></div>
-      <div className="row">
-      <span>{genre}</span>
-      <span style={{color:"#00bbec"}}>{date}</span>
-      </div>
+        <figure className="image">
+          <img alt="#" src={poster_src} />
+        </figure>
+        <div className="movie-title">
+          <span>{title}</span>
+        </div>
+        <div className="row">
+          <span>{genre}</span>
+          <span style={{ color: "#00bbec" }}>{date}</span>
+        </div>
       </div>
     );
   }

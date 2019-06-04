@@ -7,16 +7,26 @@ class SearchContainer extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            btn_title_genre_red: true,
-            btn_release_rating_red: true
+            search_by:"title",
+            sort_by:"release"
         }
     }
 
-     changeBtnColor = (params) => {
-        if ((params == "btn_title" || params == "btn_genre") && document.getElementById(params).className != "btn-red") {
-            this.setState({ btn_title_genre_red: !this.state.btn_title_genre_red })
-        } else if ((params == "btn_release" || params == "btn_rating") && document.getElementById(params).className != "btn-red") {
-            this.setState({ btn_release_rating_red: !this.state.btn_release_rating_red })
+    toggleTitleColor = (event) => {
+        if(event.target.id == "btn_genre" && this.state.search_by == "title"){
+            this.setState({ search_by: "genre"})
+        }
+        else if(event.target.id == "btn_title" && this.state.search_by == "genre"){
+            this.setState({ search_by: "title"})
+        }
+    }
+    
+    toggleRatingColor = (event) => {
+        if(event.target.id == "btn_rating" && this.state.sort_by == "release"){
+            this.setState({ sort_by: "rating"})
+        }
+        else if(event.target.id == "btn_release" && this.state.sort_by == "rating"){
+            this.setState({ sort_by: "release"})
         }
     }
 
@@ -29,22 +39,22 @@ class SearchContainer extends React.Component {
                         <div className="buttons-container">
                             <span className="desc">SEARCH BY</span>
                             <div className="buttons-position">
-                                <button id="btn_title" onClick={this.changeBtnColor.bind(this,"btn_title")} className={this.state.btn_title_genre_red ? "btn-red" : "btn-gray"}>
-                                    <span>TITLE</span>
+                                <button id="btn_title" onClick={this.toggleTitleColor} className={this.state.search_by =="title" ? "btn-red" : "btn-gray"}>
+                                    TITLE
                                 </button>
-                                <button id="btn_genre" onClick={this.changeBtnColor.bind(this,"btn_genre")} className={this.state.btn_title_genre_red ? "btn-gray" : "btn-red"}>
-                                    <span>GENRE</span>
+                                <button id="btn_genre" onClick={this.toggleTitleColor} className={this.state.search_by =="title" ? "btn-gray" : "btn-red"}>
+                                    GENRE
                                 </button>
                             </div>
                         </div>
                         <div className="buttons-container">
                             <span className="desc">SORT BY</span>
                             <div className="buttons-position">
-                                <button id="btn_release" className={this.state.btn_release_rating_red ? "btn-red" : "btn-gray"}  onClick={this.changeBtnColor.bind(this,"btn_release")}>
-                                    <span>RELEASE DATE</span>
+                                <button id="btn_release" onClick={this.toggleRatingColor} className={this.state.sort_by =="release" ? "btn-red" : "btn-gray"}>
+                                    RELEASE DATE
                                 </button>
-                                <button id="btn_rating" className={this.state.btn_release_rating_red ? "btn-gray" : "btn-red"} onClick={this.changeBtnColor.bind(this,"btn_rating")}>
-                                <span>RATING</span>
+                                <button id="btn_rating" onClick={this.toggleRatingColor} className={this.state.sort_by =="release" ? "btn-gray" : "btn-red"}>
+                                RATING
                             </button>
                             </div>
                         </div>
