@@ -1,5 +1,4 @@
 import React from 'react';
-import classNames from 'classnames';
 import "./Search.css";
 import MovieStub from '../../MovieStub.json'
 
