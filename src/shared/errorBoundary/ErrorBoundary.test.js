@@ -23,6 +23,4 @@ describe("<ErrorBoundary />", () => {
     wrapper.setState({ hasError: true });
     expect(wrapper.html()).toEqual("<h2>" + "Some errors occurred" + "</h2>");
   });
-  
-
 });

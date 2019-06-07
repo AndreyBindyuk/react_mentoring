@@ -1,10 +1,9 @@
-.app-container{
-    display: flex;
+.app-container {
+  display: flex;
 }
 
-
-.logo-container{
-    align-self: flex-start;
-    width: 50px;
-    height: auto;
+.logo-container {
+  align-self: flex-start;
+  width: 50px;
+  height: auto;
 }

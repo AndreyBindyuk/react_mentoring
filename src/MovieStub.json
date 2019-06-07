@@ -1,58 +1,51 @@
 [
-        {
-          "id": 0,
-          "poster_src":
-            "https://st.kp.yandex.net/images/film_iphone/iphone360_843650.jpg",
-          "title": "Мстители: Финал",
-          "date": "2019",
-          "genre": "фэнтези"
-        },
-        {
-          "id": 1,
-          "poster_src":
-            "https://st.kp.yandex.net/images/film_iphone/iphone360_843649.jpg",
-          "title": "Мстители: Война бесконечности",
-          "date": "2019",
-          "genre": "фэнтези"
-        },
-        {
-          "id": 2,
-          "poster_src":
-            "https://st.kp.yandex.net/images/film_iphone/iphone360_843649.jpg",
-          "title": "Мстители: Война бесконечности",
-          "date": "2019",
-          "genre": "фэнтези"
-        },
-        {
-          "id": 3,
-          "poster_src":
-            "https://st.kp.yandex.net/images/film_iphone/iphone360_843649.jpg",
-          "title": "Мстители: Война бесконечности",
-          "date": "2019",
-          "genre": "фэнтези"
-        },
-        {
-          "id": 4,
-          "poster_src":
-            "https://st.kp.yandex.net/images/film_iphone/iphone360_843649.jpg",
-          "title": "Мстители: Война бесконечности",
-          "date": "2019",
-          "genre": "фэнтези"
-        },
-        {
-          "id": 5,
-          "poster_src":
-            "https://st.kp.yandex.net/images/film_iphone/iphone360_843649.jpg",
-          "title": "Мстители: Война бесконечности",
-          "date": "2019",
-          "genre": "фэнтези"
-        },
-        {
-          "id": 6,
-          "poster_src":
-            "https://st.kp.yandex.net/images/film_iphone/iphone360_843649.jpg",
-          "title": "Мстители: Война бесконечности",
-          "date": "2019",
-          "genre": "фэнтези"
-        }
-      ]
+  {
+    "id": 0,
+    "poster_src": "https://st.kp.yandex.net/images/film_iphone/iphone360_843650.jpg",
+    "title": "Мстители: Финал",
+    "date": "2019",
+    "genre": "фэнтези"
+  },
+  {
+    "id": 1,
+    "poster_src": "https://st.kp.yandex.net/images/film_iphone/iphone360_843649.jpg",
+    "title": "Мстители: Война бесконечности",
+    "date": "2019",
+    "genre": "фэнтези"
+  },
+  {
+    "id": 2,
+    "poster_src": "https://st.kp.yandex.net/images/film_iphone/iphone360_843649.jpg",
+    "title": "Мстители: Война бесконечности",
+    "date": "2019",
+    "genre": "фэнтези"
+  },
+  {
+    "id": 3,
+    "poster_src": "https://st.kp.yandex.net/images/film_iphone/iphone360_843649.jpg",
+    "title": "Мстители: Война бесконечности",
+    "date": "2019",
+    "genre": "фэнтези"
+  },
+  {
+    "id": 4,
+    "poster_src": "https://st.kp.yandex.net/images/film_iphone/iphone360_843649.jpg",
+    "title": "Мстители: Война бесконечности",
+    "date": "2019",
+    "genre": "фэнтези"
+  },
+  {
+    "id": 5,
+    "poster_src": "https://st.kp.yandex.net/images/film_iphone/iphone360_843649.jpg",
+    "title": "Мстители: Война бесконечности",
+    "date": "2019",
+    "genre": "фэнтези"
+  },
+  {
+    "id": 6,
+    "poster_src": "https://st.kp.yandex.net/images/film_iphone/iphone360_843649.jpg",
+    "title": "Мстители: Война бесконечности",
+    "date": "2019",
+    "genre": "фэнтези"
+  }
+]
