@@ -10,6 +10,7 @@ class MovieItemList extends React.Component {
 
   render() {
     return (
+      // console.log(this.props.movies),
       <div className="movie-list-container">
         {this.props.movies.map(movie => (
           <MovieItem key={movie.id} movie={movie} />
@@ -24,7 +25,7 @@ const mapDispatchToProps = {
 };
 
 const mapStateToProps = state => ({
-  movies: state.movies
+  movies: state.movieList.movies
 });
 
 export default connect(
