@@ -1,17 +1,17 @@
 import React from "react";
 import MovieItem from "../../shared/movieItem/MovieItem";
-import MovieStub from "../../MovieStub.json";
+import { connect } from "react-redux";
+import { fetchMovieList } from "./fetchMovieList";
 
 class MovieItemList extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { movies: MovieStub };
+  componentDidMount() {
+    this.props.fetchMovies();
   }
 
   render() {
     return (
       <div className="movie-list-container">
-        {this.state.movies.map(movie => (
+        {this.props.movies.map(movie => (
           <MovieItem key={movie.id} movie={movie} />
         ))}
       </div>
@@ -19,4 +19,15 @@ class MovieItemList extends React.Component {
   }
 }
 
-export default MovieItemList;
+const mapDispatchToProps = {
+  fetchMovies: fetchMovieList
+};
+
+const mapStateToProps = state => ({
+  movies: state.movies
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(MovieItemList);
