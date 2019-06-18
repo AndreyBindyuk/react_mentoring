@@ -1,6 +1,6 @@
 import { fetchMovieItemSuccess, fetchMovieItemError } from "./actionCreators";
 
-export function fetchMovieItem(id) {
+export function fetchMovieItem() {
   return dispatch => {
     fetch("https://reactjs-cdp.herokuapp.com/movies"+"/"+"320288")
       .then(res => res.json())

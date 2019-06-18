@@ -5,14 +5,24 @@ import { fetchMovieList } from "./fetchMovieList";
 
 class MovieItemList extends React.Component {
   componentDidMount() {
-    this.props.fetchMovies();
+    this.props.fetchMovies(
+      this.props.sorting,
+      this.props.searching,
+      this.props.query
+    );
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    const sorting = this.props.sorting;
+    if (prevProps.sorting !== sorting) {
+      this.props.fetchMovies(sorting, this.props.searching, this.props.query);
+    }
   }
 
   render() {
     return (
-      // console.log(this.props.movies),
       <div className="movie-list-container">
-        {this.props.movies.map(movie => (
+        {this.props.movieList.map(movie => (
           <MovieItem key={movie.id} movie={movie} />
         ))}
       </div>
@@ -25,7 +35,10 @@ const mapDispatchToProps = {
 };
 
 const mapStateToProps = state => ({
-  movies: state.movieList.movies
+  sorting: state.searchContainer.sort_by,
+  searching: state.searchContainer.search_by,
+  query: state.searchContainer.query,
+  movieList: state.movieList.movies
 });
 
 export default connect(

@@ -9,7 +9,7 @@ const initialState = {
   movie: {}
 };
 
-export function movieItemReducer(state = initialState, action) {
+export default function movieItemReducer(state=initialState, action) {
   switch (action.type) {
     case FETCH_MOVIE_ITEM_SUCCESS:
       return { ...state, movie: action.movie };
