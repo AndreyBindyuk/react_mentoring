@@ -15,15 +15,17 @@ class MovieSingleView extends React.Component {
   }
 
   render() {
-    // console.log(this.props.movie);
-    const { title, release_date, genres, poster_path, vote_count, overview } = this.props.movie;
+    const {
+      title,
+      release_date,
+      genres,
+      poster_path,
+      vote_count,
+      overview
+    } = this.props.movie;
     return (
       <div className="movie-view-container">
-        <img
-          className="movie-image"
-          alt="#"
-          src={poster_path}
-        />
+        <img className="movie-image" alt="#" src={poster_path} />
         <div className="movie-info-container">
           <button className="btn-s">SEARCH</button>
           <h1 className="movies-title">{title}</h1>
@@ -42,18 +44,15 @@ class MovieSingleView extends React.Component {
               <strong>Категория:</strong> {genres}
             </li>
           </ul>
-          <div className="movie-text">
-            {overview}
-          </div>
+          <div className="movie-text">{overview}</div>
         </div>
       </div>
     );
   }
-  
 }
 
-const mapDispatchToProps =  {
-    fetchMovie: fetchMovieItem
+const mapDispatchToProps = {
+  fetchMovie: fetchMovieItem
 };
 
 const mapStateToProps = state => ({

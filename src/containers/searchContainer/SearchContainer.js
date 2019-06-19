@@ -1,10 +1,13 @@
 import React from "react";
 import "./Search.css";
-import { searchContainerService, sortService, searchService } from "./SearchContainerService";
+import {
+  searchContainerService,
+  sortService,
+  searchService
+} from "./SearchContainerService";
 import { connect } from "react-redux";
 
 class SearchContainer extends React.Component {
-
   toggleTitleColor = event => {
     if (event.target.id == "btn_genre" && this.props.searching == "title") {
       this.props.searchService("genres");
@@ -31,16 +34,17 @@ class SearchContainer extends React.Component {
   };
 
   submit = () => {
-    var text=document.getElementById("text").value;
+    var text = document.getElementById("text").value;
     console.log(text);
     this.props.searchService(this.props.searching, text);
-  }
+  };
 
   render() {
     return (
       <div className="search-container">
         <div className="input-button-container">
-          <input id="text"
+          <input
+            id="text"
             className="input-container"
             type="input"
             placeholder="Search..."
@@ -100,7 +104,13 @@ class SearchContainer extends React.Component {
               <div className="result-count">
                 <span>{this.props.movies.length}</span>results
               </div>
-              <button id="btn_search" onClick={this.submit} className="btn-search">SEARCH</button>
+              <button
+                id="btn_search"
+                onClick={this.submit}
+                className="btn-search"
+              >
+                SEARCH
+              </button>
             </div>
           </div>
         </div>
@@ -112,7 +122,6 @@ class SearchContainer extends React.Component {
 const mapDispatchToProps = {
   sortService: sortService,
   searchService: searchService
-
 };
 
 const mapStateToProps = state => ({

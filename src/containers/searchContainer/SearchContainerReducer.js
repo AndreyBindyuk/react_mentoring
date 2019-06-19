@@ -1,7 +1,4 @@
-import {
-  SORT_MOVIES_SUCCESS,
-  SEARCH_MOVIES_SUCCESS,
-} from "./actionCreators";
+import { SORT_MOVIES_SUCCESS, SEARCH_MOVIES_SUCCESS } from "./actionCreators";
 
 const initialState = {
   error: "",
@@ -10,12 +7,11 @@ const initialState = {
   query: undefined
 };
 
-export default function searchContainerReducer(state=initialState, action) {
+export default function searchContainerReducer(state = initialState, action) {
   switch (action.type) {
     case SORT_MOVIES_SUCCESS:
       return { ...state, sort_by: action.sort_by };
-      case SEARCH_MOVIES_SUCCESS:
-        // console.log(action.query);
+    case SEARCH_MOVIES_SUCCESS:
       return { ...state, search_by: action.search_by, query: action.query };
     default:
       return state;
