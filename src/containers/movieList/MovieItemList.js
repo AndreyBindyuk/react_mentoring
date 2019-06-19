@@ -14,8 +14,13 @@ class MovieItemList extends React.Component {
 
   componentDidUpdate(prevProps, prevState) {
     const sorting = this.props.sorting;
+    const searching = this.props.searching;
+    const query = this.props.query;
     if (prevProps.sorting !== sorting) {
-      this.props.fetchMovies(sorting, this.props.searching, this.props.query);
+      this.props.fetchMovies(this.props.sorting,this.props.searching, this.props.query);
+    }
+    if ((prevProps.query !== query)) {
+      this.props.fetchMovies(this.props.sorting,this.props.searching, this.props.query);
     }
   }
 

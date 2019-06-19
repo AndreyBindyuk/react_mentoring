@@ -53,9 +53,7 @@ class MovieSingleView extends React.Component {
 }
 
 const mapDispatchToProps =  {
-  // return {
     fetchMovie: fetchMovieItem
-  // };
 };
 
 const mapStateToProps = state => ({

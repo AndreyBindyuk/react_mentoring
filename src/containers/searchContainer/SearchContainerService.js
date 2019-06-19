@@ -1,32 +1,14 @@
 import { sortMoviesSuccess, searchMoviesSuccess } from "./actionCreators";
 
-// export function sortMoviesService(sortBy) {
-//   console.log(sortBy);
-//   return dispatch => {
-//     fetch("https://reactjs-cdp.herokuapp.com/movies" + "?sortBy=" + sortBy + "&sortOrder=desc")
-//       .then(res => res.json())
-//       .then(res => {
-//         if (res.error) {
-//           throw res.error;
-//         }
-//         dispatch(sortMoviesSuccess(res.data));
-
-//         return res.data;
-//       })
-//       .catch(error => {
-//         sortMoviesError(error);
-//         return error;
-//       });
-//   };
-// }
-
-export function searchContainerService(param) {
+export function sortService(sort_by) {
   return dispatch => {
-    if (param === "release_date" || param === "vote_average") {
-      dispatch(sortMoviesSuccess(param));
-    }
-    if (param === "genre" || param === "title") {
-      dispatch(searchMoviesSuccess(param));
-    }
+    dispatch(sortMoviesSuccess(sort_by));
+  };
+}
+
+export function searchService(search_by, query) {
+  return dispatch => {
+    // console.log(query);
+    dispatch(searchMoviesSuccess(search_by, query));
   };
 }
