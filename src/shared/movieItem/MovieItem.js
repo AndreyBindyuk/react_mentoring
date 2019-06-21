@@ -1,7 +1,7 @@
 import React from "react";
 import "./Movie.css";
 
-class MovieItem extends React.Component {
+export class MovieItem extends React.Component {
   constructor(props) {
     super(props);
   }

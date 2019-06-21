@@ -3,7 +3,7 @@ import MovieItem from "../../shared/movieItem/MovieItem";
 import { connect } from "react-redux";
 import { fetchMovieList } from "./fetchMovieList";
 
-class MovieItemList extends React.Component {
+export class MovieItemList extends React.Component {
   componentDidMount() {
     this.props.fetchMovies(
       this.props.sorting,

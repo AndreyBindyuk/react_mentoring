@@ -5,7 +5,7 @@ import "react-rater/lib/react-rater.css";
 import { fetchMovieItem } from "./fetchMovieItem";
 import { connect } from "react-redux";
 
-class MovieSingleView extends React.Component {
+export class MovieSingleView extends React.Component {
   constructor(props) {
     super(props);
   }

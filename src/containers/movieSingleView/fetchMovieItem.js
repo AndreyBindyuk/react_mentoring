@@ -2,7 +2,7 @@ import { fetchMovieItemSuccess, fetchMovieItemError } from "./actionCreators";
 
 export function fetchMovieItem() {
   return dispatch => {
-    fetch("https://reactjs-cdp.herokuapp.com/movies"+"/"+"320288")
+   return fetch("https://reactjs-cdp.herokuapp.com/movies"+"/"+"320288")
       .then(res => res.json())
       .then(res => {
         if (res.error) {
