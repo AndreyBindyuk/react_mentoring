@@ -2,13 +2,12 @@ import { fetchMovieListSuccess, fetchMovieListError } from "./actionCreators";
 
 export function fetchMovieList(sort_by, search_by, query) {
   return dispatch => {
-    fetch(fetchListImpl(sort_by, search_by, query))
+    return fetch(fetchListImpl(sort_by, search_by, query))
       .then(res => res.json())
       .then(res => {
         if (res.error) {
           throw res.error;
         }
-        console.log(res.data);
         dispatch(fetchMovieListSuccess(res.data));
         return res.data;
       })
