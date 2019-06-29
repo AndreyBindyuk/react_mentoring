@@ -8,6 +8,7 @@ export function fetchMovieList(sort_by, search_by, query) {
         if (res.error) {
           throw res.error;
         }
+        // console.log(res);
         dispatch(fetchMovieListSuccess(res.data));
         return res.data;
       })

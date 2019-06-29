@@ -2,6 +2,7 @@ import { sortMoviesSuccess, searchMoviesSuccess } from "./actionCreators";
 
 export function sortService(sort_by) {
   return dispatch => {
+    // console.log(sort_by);
     dispatch(sortMoviesSuccess(sort_by));
   };
 }

@@ -2,6 +2,7 @@ import React from "react";
 import SearchContainer from "../searchContainer/SearchContainer";
 import MovieItemList from "../movieList/MovieItemList";
 import Footer from "../../shared/footer/Footer";
+import { withRouter } from "react-router-dom";
 
 class MainPage extends React.Component {
   render() {
@@ -15,4 +16,4 @@ class MainPage extends React.Component {
   }
 }
 
-export default MainPage;
+export default withRouter(MainPage);

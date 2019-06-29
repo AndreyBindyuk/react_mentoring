@@ -4,6 +4,7 @@ import MainPage from "./containers/mainPage/MainPage";
 import ErrorBoundary from "./shared/errorBoundary/ErrorBoundary";
 import mainLogo from "./assets/logo.png";
 import "./App.css";
+import { withRouter } from "react-router-dom";
 
 class App extends React.Component {
   render() {
@@ -19,4 +20,4 @@ class App extends React.Component {
   }
 }
 
-export default App;
+export default withRouter(App);

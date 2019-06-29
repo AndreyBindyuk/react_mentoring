@@ -2,14 +2,15 @@ import React from "react";
 import MovieItem from "../../shared/movieItem/MovieItem";
 import { connect } from "react-redux";
 import { fetchMovieList } from "./fetchMovieList";
+import { withRouter } from "react-router-dom";
 
 export class MovieItemList extends React.Component {
   componentDidMount() {
-    this.props.fetchMovies(
-      this.props.sorting,
-      this.props.searching,
-      this.props.query
-    );
+      this.props.fetchMovies(
+        this.props.sorting,
+        this.props.searching,
+        this.props.query
+      );
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -17,10 +18,18 @@ export class MovieItemList extends React.Component {
     const searching = this.props.searching;
     const query = this.props.query;
     if (prevProps.sorting !== sorting) {
-      this.props.fetchMovies(this.props.sorting,this.props.searching, this.props.query);
+      this.props.fetchMovies(
+        this.props.sorting,
+        this.props.searching,
+        this.props.query
+      );
     }
-    if ((prevProps.query !== query)) {
-      this.props.fetchMovies(this.props.sorting,this.props.searching, this.props.query);
+    if (prevProps.query !== query) {
+      this.props.fetchMovies(
+        this.props.sorting,
+        this.props.searching,
+        this.props.query
+      );
     }
   }
 
@@ -46,7 +55,8 @@ const mapStateToProps = state => ({
   movieList: state.movieList.movies
 });
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(MovieItemList);
+export default 
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(MovieItemList);

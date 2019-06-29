@@ -2,6 +2,7 @@ import React from "react";
 import MovieSingleView from "../movieSingleView/MovieSingleView";
 import MovieItemList from "../movieList/MovieItemList";
 import Footer from "../../shared/footer/Footer";
+import { withRouter } from "react-router-dom";
 
 class MovieView extends React.Component {
   render() {
@@ -15,4 +16,4 @@ class MovieView extends React.Component {
   }
 }
 
-export default MovieView;
+export default withRouter(MovieView);

@@ -4,6 +4,8 @@ import Rater from "react-rater";
 import "react-rater/lib/react-rater.css";
 import { fetchMovieItem } from "./fetchMovieItem";
 import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export class MovieSingleView extends React.Component {
   constructor(props) {
@@ -11,7 +13,15 @@ export class MovieSingleView extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchMovie();
+    const { id } = this.props.match.params;
+    this.props.fetchMovie(id);
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevProps.match.params !== this.props.match.params) {
+      const { id } = this.props.match.params;
+      this.props.fetchMovie(id);
+    }
   }
 
   render() {
@@ -27,7 +37,9 @@ export class MovieSingleView extends React.Component {
       <div className="movie-view-container">
         <img className="movie-image" alt="#" src={poster_path} />
         <div className="movie-info-container">
-          <button className="btn-s">SEARCH</button>
+          <Link to="/">
+            <button className="btn-s">BACK</button>
+          </Link>
           <h1 className="movies-title">{title}</h1>
           <ul className="movie-meta">
             <li>
@@ -59,7 +71,9 @@ const mapStateToProps = state => ({
   movie: state.movieItem.movie
 });
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(MovieSingleView);
+export default withRouter(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(MovieSingleView)
+);
