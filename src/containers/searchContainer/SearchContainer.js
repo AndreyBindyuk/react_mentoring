@@ -10,7 +10,6 @@ export class SearchContainer extends React.Component {
   componentDidMount() {
     const values = queryString.parse(this.props.location.search)
     if (values.sortBy){
-      console.log(values.sortBy);
       this.props.sortService(values.sortBy);
     }
     if(values.query!=="undefined" && values.query){

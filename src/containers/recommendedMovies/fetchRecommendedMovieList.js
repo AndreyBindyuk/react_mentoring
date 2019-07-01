@@ -5,7 +5,7 @@ import {
 
 export function fetchRecommendedMovies(movie) {
   return dispatch => {
-    return fetch(fetchListImpl(movie.search_by))
+    return fetch(fetchListImpl(movie.genres[0]))
       .then(res => res.json())
       .then(res => {
         if (res.error) {
@@ -22,8 +22,8 @@ export function fetchRecommendedMovies(movie) {
   };
 }
 
-function fetchListImpl(search_by) {
+function fetchListImpl(query) {
   var URL =
-    "https://reactjs-cdp.herokuapp.com/movies" + "?searchBy=" + search_by;
+    "https://reactjs-cdp.herokuapp.com/movies" + "?search=" + query;
   return URL;
 }

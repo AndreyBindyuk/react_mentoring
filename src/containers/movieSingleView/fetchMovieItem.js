@@ -8,7 +8,6 @@ export function fetchMovieItem(id) {
         if (res.error) {
           throw res.error;
         }
-        console.log(res);
         dispatch(fetchMovieItemSuccess(res));
         return res;
       })

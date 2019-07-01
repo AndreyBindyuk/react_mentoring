@@ -34,7 +34,6 @@ export class MovieItemList extends React.Component {
   }
 
   render() {
-    console.log(this.props.movieList);
     return (
       <div className="movie-list-container">
         {this.props.movieList.map(movie => (
