@@ -10,9 +10,10 @@ export class SearchContainer extends React.Component {
   componentDidMount() {
     const values = queryString.parse(this.props.location.search)
     if (values.sortBy){
+      console.log(values.sortBy);
       this.props.sortService(values.sortBy);
     }
-    if(values.query!=="undefined"){
+    if(values.query!=="undefined" && values.query){
       this.props.searchService(values.searchBy,values.query);
     }
   }
@@ -54,7 +55,7 @@ export class SearchContainer extends React.Component {
             id="text"
             className="input-container"
             type="input"
-            placeholder="Search..."
+            placeholder={this.props.query ? this.props.query : "Search..."}
           />
           <div className="buttons-movies-result-container">
             <div className="buttons-container">
