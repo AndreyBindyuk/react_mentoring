@@ -1,6 +1,6 @@
 import React from "react";
 import "./Search.css";
-import { sortService, searchService } from "./SearchContainerService";
+import  { sortService, searchService } from "./SearchContainerService";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { withRouter } from "react-router-dom";

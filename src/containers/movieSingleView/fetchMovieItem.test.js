@@ -3,6 +3,8 @@ import thunk from "redux-thunk";
 import fetchMock from "fetch-mock";
 
 import { fetchMovieItem } from "./fetchMovieItem";
+import { ProxyURL } from "../../ProxyURL";
+
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
@@ -13,7 +15,7 @@ describe("async actions", () => {
 
   it("creates FETCH_MOVIE_ITEM_SUCCESS when fetching movie item has been done", () => {
     fetchMock.getOnce(
-      "https://reactjs-cdp.herokuapp.com/movies" + "/" + "320288",
+      ProxyURL + "/" + "320288",
       {}
     );
 

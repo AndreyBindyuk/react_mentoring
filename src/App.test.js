@@ -4,6 +4,7 @@ import App from "./App";
 
 describe("First React component test with Enzyme", () => {
   it("renders without crashing", () => {
-    shallow(<App />);
+    const ModalTriggerComponent = shallow(<App />);
+    expect(ModalTriggerComponent).toMatchSnapshot();
   });
 });

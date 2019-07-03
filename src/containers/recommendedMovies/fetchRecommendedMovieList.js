@@ -2,6 +2,7 @@ import {
   fetchRecommendedMovieListSuccess,
   fetchRecommendedMovieListError
 } from "./actionCreators";
+import { ProxyURL } from "../../ProxyURL";
 
 export function fetchRecommendedMovies(movie) {
   return dispatch => {
@@ -24,6 +25,6 @@ export function fetchRecommendedMovies(movie) {
 
 function fetchListImpl(query) {
   var URL =
-    "https://reactjs-cdp.herokuapp.com/movies" + "?search=" + query;
+  ProxyURL + "?search=" + query;
   return URL;
 }

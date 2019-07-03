@@ -6,10 +6,11 @@ import { withRouter } from "react-router-dom";
 
 export class MovieItemList extends React.Component {
   componentDidMount() {
+    let {sorting, searching, query} =  this.props
       this.props.fetchMovies(
-        this.props.sorting,
-        this.props.searching,
-        this.props.query
+        sorting,
+        searching,
+        query
       );
   }
 

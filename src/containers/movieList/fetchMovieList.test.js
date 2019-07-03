@@ -3,6 +3,8 @@ import thunk from "redux-thunk";
 import fetchMock from "fetch-mock";
 
 import { fetchMovieList } from "./fetchMovieList";
+import { ProxyURL } from "../../ProxyURL";
+
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
@@ -13,7 +15,7 @@ describe("async actions", () => {
 
   it("creates FETCH_MOVIE_LIST_SUCCESS when fetching movie list with SORT_BY has been done", () => {
     fetchMock.getOnce(
-      "https://reactjs-cdp.herokuapp.com/movies?sortBy=vote_average&sortOrder=desc",
+      ProxyURL+"?sortBy=vote_average&sortOrder=desc",
       { data: ["test", "test1"] }
     );
 
@@ -36,7 +38,7 @@ describe("async actions", () => {
 
   it("creates FETCH_MOVIE_LIST_SUCCESS when fetching movie list with SEARCH_BY has been done", () => {
     fetchMock.getOnce(
-      "https://reactjs-cdp.herokuapp.com/movies?sortBy=vote_average&sortOrder=desc&search=Family&searchBy=genres",
+      ProxyURL+"?sortBy=vote_average&sortOrder=desc&search=Family&searchBy=genres",
       { data: ["test", "test1"] }
     );
 

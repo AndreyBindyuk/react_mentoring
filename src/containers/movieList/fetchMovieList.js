@@ -1,4 +1,5 @@
 import { fetchMovieListSuccess, fetchMovieListError } from "./actionCreators";
+import { ProxyURL } from "../../ProxyURL";
 
 export function fetchMovieList(sort_by, search_by, query) {
   return dispatch => {
@@ -8,7 +9,6 @@ export function fetchMovieList(sort_by, search_by, query) {
         if (res.error) {
           throw res.error;
         }
-        // console.log(res);
         dispatch(fetchMovieListSuccess(res.data));
         return res.data;
       })
@@ -21,7 +21,7 @@ export function fetchMovieList(sort_by, search_by, query) {
 
 function fetchListImpl(sort_by, search_by, query) {
   var URL =
-    "https://reactjs-cdp.herokuapp.com/movies" +
+  ProxyURL +
     "?sortBy=" +
     sort_by +
     "&sortOrder=desc";
