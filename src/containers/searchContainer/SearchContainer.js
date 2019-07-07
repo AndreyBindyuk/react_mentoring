@@ -1,48 +1,41 @@
 import React from "react";
 import "./Search.css";
-import  { sortService, searchService } from "./SearchContainerService";
+import { sortService, searchService } from "./SearchContainerService";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { withRouter } from "react-router-dom";
-import queryString from 'query-string'
+import queryString from "query-string";
+import classnames from "classnames";
+import { sortMoviesSuccess, searchMoviesSuccess } from "./actionCreators";
 
 export class SearchContainer extends React.Component {
   componentDidMount() {
-    const values = queryString.parse(this.props.location.search)
-    if (values.sortBy){
+    const values = queryString.parse(this.props.location.search);
+    if (values.sortBy) {
       this.props.sortService(values.sortBy);
     }
-    if(values.query!=="undefined" && values.query){
-      this.props.searchService(values.searchBy,values.query);
+    if (values.query !== "undefined" && values.query) {
+      this.props.searchService(values.searchBy, values.query);
     }
   }
 
-  
-
-  toggleTitleColor = event => {
-    if (event.target.id == "btn_genre" && this.props.searching == "title") {
-      this.props.searchService("genres");
-    } else if (
-      event.target.id == "btn_title" &&
-      this.props.searching == "genres"
-    ) {
-      this.props.searchService("title");
+  componentDidUpdate(prevProps, prevState){
+    if(prevProps.sorting !== this.props.sorting || prevProps.searching !== this.props.searching || prevProps.query !== this.props.query){
+      let URL = `/search?sortBy=${this.props.sorting}&searchBy=${this.props.searching}&query=${this.props.query}`
+      this.props.history.push(URL)
     }
+  }
+
+  toggleTitleColor = value => {
+    this.props.searchService(value);
   };
 
-  toggleRatingColor = event => {
-    if ( event.target.id == "btn_rating" && this.props.sorting == "release_date") {
-      this.props.sortService("vote_average");
-    } 
-    else if ( event.target.id == "btn_release" && this.props.sorting == "vote_average") {
-      this.props.sortService("release_date");
-    }
+  toggleRatingColor = value => {
+    this.props.sortService(value);
   };
 
   submit = () => {
     var text = document.getElementById("text").value;
-    const url = `/search?sortBy=${this.props.sorting}&searchBy=${this.props.searching}&query=${text}`;
-    this.props.history.push(url);
     this.props.searchService(this.props.searching, text);
   };
 
@@ -60,59 +53,51 @@ export class SearchContainer extends React.Component {
             <div className="buttons-container">
               <span className="desc">SEARCH BY</span>
               <div className="buttons-position">
-              <Link to={`/search?sortBy=${this.props.sorting}&searchBy=title&query=${this.props.query}`}>
                 <button
                   id="btn_title"
-                  onClick={this.toggleTitleColor}
-                  className={
-                    this.props.searching == "title" ? "btn-red" : "btn-gray"
-                  }
+                  onClick={() => this.toggleTitleColor("title")}
+                  className={classnames({
+                    "btn-red": this.props.searching === "title",
+                    "btn-gray": this.props.searching === "genres"
+                  })}
                 >
                   TITLE
                 </button>
-                </Link>
-                <Link to={`/search?sortBy=${this.props.sorting}&searchBy=genres&query=${this.props.query}`}>
                 <button
                   id="btn_genre"
-                  onClick={this.toggleTitleColor}
-                  className={
-                    this.props.searching == "title" ? "btn-gray" : "btn-red"
-                  }
+                  onClick={() => this.toggleTitleColor("genres")}
+                  className={classnames({
+                    "btn-gray": this.props.searching === "title",
+                    "btn-red": this.props.searching === "genres"
+                  })}
                 >
                   GENRE
                 </button>
-                </Link>
               </div>
             </div>
             <div className="buttons-container">
               <span className="desc">SORT BY</span>
               <div className="buttons-position">
-              <Link to={`/search?sortBy=release_date&searchBy=${this.props.searching}&query=${this.props.query}`}>
                 <button
                   id="btn_release"
-                  onClick={this.toggleRatingColor}
-                  className={
-                    this.props.sorting == "release_date"
-                      ? "btn-red"
-                      : "btn-gray"
-                  }
+                  onClick={() => this.toggleRatingColor("release_date")}
+                  className={classnames({
+                    "btn-red": this.props.sorting === "release_date",
+                    "btn-gray": this.props.sorting === "vote_average"
+                  })}
                 >
                   RELEASE DATE
                 </button>
-                </Link>
-                <Link to={`/search?sortBy=vote_average&searchBy=${this.props.searching}&query=${this.props.query}`}>
                 <button
                   id="btn_rating"
-                  onClick={this.toggleRatingColor}
-                  className={
-                    this.props.sorting == "release_date"
-                      ? "btn-gray"
-                      : "btn-red"
-                  }
+                  onClick={() => this.toggleRatingColor("vote_average")}
+                  className={classnames({
+                    "btn-gray": this.props.sorting === "release_date",
+                    "btn-red": this.props.sorting === "vote_average"
+                  })}
                 >
                   RATING
                 </button>
-                </Link>
               </div>
             </div>
             <div className="movies-search-result">
@@ -134,10 +119,11 @@ export class SearchContainer extends React.Component {
   }
 }
 
-const mapDispatchToProps = {
-  sortService: sortService,
-  searchService: searchService
-};
+const mapDispatchToProps = dispatch => ({
+  sortService: sort_by => dispatch(sortMoviesSuccess(sort_by)),
+  searchService: (search_by, query) =>
+    dispatch(searchMoviesSuccess(search_by, query))
+});
 
 const mapStateToProps = state => ({
   movies: state.movieList.movies,
