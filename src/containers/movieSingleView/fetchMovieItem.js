@@ -1,20 +1,24 @@
-import { fetchMovieItemSuccess, fetchMovieItemError } from "./actionCreators";
+import { fetchMovieItemSuccess, fetchMovieItemError, FETCH_MOVIE_ITEM } from "./actionCreators";
 import { ProxyURL } from "../../ProxyURL";
+import { call, put, all, takeLatest } from "redux-saga/effects";
 
-export function fetchMovieItem(id) {
-  return dispatch => {
-   return fetch(ProxyURL+"/"+id)
-      .then(res => res.json())
-      .then(res => {
-        if (res.error) {
-          throw res.error;
-        }
-        dispatch(fetchMovieItemSuccess(res));
-        return res;
-      })
-      .catch(error => {
-        fetchMovieItemError(error);
-        return error;
-      });
-  };
+
+export function* fetchMovieItem(action) {
+  const response = yield call(fetch, (ProxyURL+"/"+action.id));
+  const movie = yield response.json();
+  yield put(fetchMovieItemSuccess(movie));
+}
+
+export const fetchItem = (id) => ({
+  type: FETCH_MOVIE_ITEM,
+  id
+});
+
+
+export function* watchFetchMovieItem() {
+  yield takeLatest(FETCH_MOVIE_ITEM, fetchMovieItem);
+}
+
+export function* movieItemSaga() {
+  yield all([watchFetchMovieItem()]);
 }

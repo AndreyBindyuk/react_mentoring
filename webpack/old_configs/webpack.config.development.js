@@ -6,7 +6,7 @@ module.exports = {
 	
 	output: {
 		filename: 'main.dev.js',
-		path: path.join(__dirname, 'dist'),
+		path: path.join(__dirname, '../dist'),
 	},
 	devServer: {
 		publicPath: '/',

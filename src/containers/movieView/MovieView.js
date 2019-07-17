@@ -10,8 +10,8 @@ class MovieView extends React.Component {
     return (
       <div>
         <MovieSingleView />
-        <RecommendedMovieList />
-        {/* <MovieItemList /> */}
+        {/* <RecommendedMovieList /> */}
+        <MovieItemList />
         <Footer />
       </div>
     );

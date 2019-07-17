@@ -1,30 +1,34 @@
 import React from "react";
 import "./MovieSingleView.css";
 import Rater from "react-rater";
-import "react-rater/lib/react-rater.css";
-import { fetchMovieItem } from "./fetchMovieItem";
+import "./react-rater.css";
+import { fetchItem } from "./fetchMovieItem";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import { Link } from "react-router-dom";
+import { bindActionCreators } from 'redux';
 
 export class MovieSingleView extends React.Component {
   constructor(props) {
     super(props);
   }
 
-  componentDidMount() {
+  componentWillMount() {
     const { id } = this.props.match.params;
-    this.props.fetchMovie(id);
+    this.props.fetchItem(id);
   }
 
   componentDidUpdate(prevProps, prevState) {
     if (prevProps.match.params !== this.props.match.params) {
       const { id } = this.props.match.params;
-      this.props.fetchMovie(id);
+      this.props.fetchItem(id);
     }
   }
 
   render() {
+    if (this.props.loading) {
+      return <div>Loading...</div>; 
+  } else{
     const {
       title,
       release_date,
@@ -59,16 +63,21 @@ export class MovieSingleView extends React.Component {
           <div className="movie-text">{overview}</div>
         </div>
       </div>
-    );
+    );}
   }
 }
 
-const mapDispatchToProps = {
-  fetchMovie: fetchMovieItem
-};
+// const mapDispatchToProps = {
+//   fetchMovie: fetchMovieItem
+// };
+
+const mapDispatchToProps = dispatch => bindActionCreators({
+  fetchItem,
+}, dispatch);
 
 const mapStateToProps = state => ({
-  movie: state.movieItem.movie
+  movie: state.movieItem.movie,
+  loading: state.movieItem.loading
 });
 
 export default withRouter(

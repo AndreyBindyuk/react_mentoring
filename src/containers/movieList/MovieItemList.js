@@ -1,11 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
 import MovieItem from "../../shared/movieItem/MovieItem";
 import { connect } from "react-redux";
-import { fetchMovieList } from "./fetchMovieList";
+import { fetchMovieList, fetchMovies } from "./fetchMovieList";
 import { withRouter } from "react-router-dom";
+import { bindActionCreators } from 'redux';
+import PropTypes from 'prop-types';
+import Loader from '../Loader/index';
 
 export class MovieItemList extends React.Component {
-  componentDidMount() {
+  componentWillMount() {
+    console.log("hUETAAAAAA");
     let {sorting, searching, query} =  this.props
       this.props.fetchMovies(
         sorting,
@@ -35,6 +39,9 @@ export class MovieItemList extends React.Component {
   }
 
   render() {
+    if (this.props.loading) {
+      return <div>Loading....</div>; 
+  }
     return (
       <div className="movie-list-container">
         {this.props.movieList.map(movie => (
@@ -42,18 +49,20 @@ export class MovieItemList extends React.Component {
         ))}
       </div>
     );
+  
   }
 }
 
-const mapDispatchToProps = {
-  fetchMovies: fetchMovieList
-};
+const mapDispatchToProps = dispatch => bindActionCreators({
+  fetchMovies,
+}, dispatch);
 
 const mapStateToProps = state => ({
   sorting: state.searchContainer.sort_by,
   searching: state.searchContainer.search_by,
   query: state.searchContainer.query,
-  movieList: state.movieList.movies
+  movieList: state.movieList.movies,
+  loading: state.movieList.loading,
 });
 
 export default 
@@ -61,3 +70,6 @@ export default
     mapStateToProps,
     mapDispatchToProps
   )(MovieItemList);
+
+
+  /* <Loader loading={this.props.loading} /> */
