@@ -1,9 +1,8 @@
 import React from 'react';
 import { hydrate } from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
-
-import Root from "./pages/index";
-import configureStore from "./configureStore";
+import Root from './pages/index';
+import configureStore from './configureStore';
 
 const store = configureStore(window.PRELOADED_STATE);
 

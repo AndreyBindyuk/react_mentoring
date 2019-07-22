@@ -21,14 +21,14 @@ module.exports = merge(common, {
           {
             loader: "css-loader",
             options: {
-              exportOnlyLocals: true,
-              modules: true,
-              localIdentName: '[name]-[hash:5]',
+              exportOnlyLocals: true
+              // modules: true,
+              // localIdentName: '[name]-[hash:5]',
             }
           }
           //   'css-loader/locals', // It doesn't embed CSS but only exports the identifier mappings.
         ]
-      },
+      }
     ]
   }
 });

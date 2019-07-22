@@ -1,16 +1,16 @@
-import { createStore, applyMiddleware } from "redux";
+import { createStore, applyMiddleware } from 'redux';
 import createSagaMiddleware, { END } from 'redux-saga';
-import rootReducer from "./rootReducer";
-import {moviesSaga} from "./containers/movieList/fetchMovieList"
-import {movieItemSaga} from "./containers/movieSingleView/fetchMovieItem"
 import { all } from 'redux-saga/effects';
+import rootReducer from './rootReducer';
+import { moviesSaga } from './containers/movieList/fetchMovieList';
+import { movieItemSaga } from './containers/movieSingleView/fetchMovieItem';
 
 const sagaMiddleware = createSagaMiddleware();
 
 function* rootSaga() {
   yield all([
     moviesSaga(),
-    movieItemSaga()
+    movieItemSaga(),
   ]);
 }
 

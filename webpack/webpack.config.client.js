@@ -24,11 +24,7 @@ module.exports = merge(common, {
         use: [
           isDevMod ? 'style-loader' : MiniCssExtractPlugin.loader,
           {
-            loader: 'css-loader',
-            options: {
-              modules: true,
-              localIdentName: '[name]-[hash:5]',
-            },
+            loader: 'css-loader'
         },
         ],
       },

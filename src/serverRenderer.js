@@ -1,8 +1,8 @@
-import React from "react";
-import { renderToString } from "react-dom/server";
-import Root from "./pages/index";
-import { StaticRouter } from "react-router-dom";
-import configureStore from "./configureStore";
+import React from 'react';
+import { renderToString } from 'react-dom/server';
+import { StaticRouter } from 'react-router-dom';
+import Root from './pages/index';
+import configureStore from './configureStore';
 
 function renderHTML(html, preloadedState) {
   return `
@@ -12,10 +12,10 @@ function renderHTML(html, preloadedState) {
             <meta charset="UTF-8">
             <title>Webpack App</title>
             ${
-              process.env.NODE_ENV === "development"
-                ? ""
-                : '<link href="/css/main.css" rel="stylesheet" type="text/css">'
-            }
+  process.env.NODE_ENV === 'development'
+    ? ''
+    : '<link href="/css/main.css" rel="stylesheet" type="text/css">'
+}
         </head>
         <body>
             <div id="div1">${html}</div>
@@ -23,9 +23,9 @@ function renderHTML(html, preloadedState) {
             // WARNING: See the following for security issues around embedding JSON in HTML:
             // http://redux.js.org/docs/recipes/ServerRendering.html#security-considerations
             window.PRELOADED_STATE = ${JSON.stringify(preloadedState).replace(
-              /</g,
-              "\\u003c"
-            )}
+    /</g,
+    '\\u003c',
+  )}
           </script>
             <script src="/js/main.js"></script>
         </body>
@@ -50,14 +50,13 @@ export default function serverRenderer() {
       const htmlString = renderToString(renderRoot());
       if (context.url) {
         res.writeHead(302, {
-          Location: context.url
+          Location: context.url,
         });
         res.end();
         return;
       }
       const preloadedState = store.getState();
       res.send(renderHTML(htmlString, preloadedState));
-      
     });
 
     renderToString(renderRoot());

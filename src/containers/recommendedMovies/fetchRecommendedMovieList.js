@@ -1,30 +1,27 @@
 import {
   fetchRecommendedMovieListSuccess,
-  fetchRecommendedMovieListError
-} from "./actionCreators";
-import { ProxyURL } from "../../ProxyURL";
+  fetchRecommendedMovieListError,
+} from './actionCreators';
+import { ProxyURL } from '../../ProxyURL';
 
 export function fetchRecommendedMovies(movie) {
-  return dispatch => {
-    return fetch(fetchListImpl(movie.genres[0]))
-      .then(res => res.json())
-      .then(res => {
-        if (res.error) {
-          throw res.error;
-        }
-        // console.log(res);
-        dispatch(fetchRecommendedMovieListSuccess(res.data));
-        return res.data;
-      })
-      .catch(error => {
-        fetchRecommendedMovieListError(error);
-        return error;
-      });
-  };
+  return dispatch => fetch(fetchListImpl(movie.genres[0]))
+    .then(res => res.json())
+    .then((res) => {
+      if (res.error) {
+        throw res.error;
+      }
+      // console.log(res);
+      dispatch(fetchRecommendedMovieListSuccess(res.data));
+      return res.data;
+    })
+    .catch((error) => {
+      fetchRecommendedMovieListError(error);
+      return error;
+    });
 }
 
 function fetchListImpl(query) {
-  var URL =
-  ProxyURL + "?search=" + query;
+  const URL = `${ProxyURL}?search=${query}`;
   return URL;
 }

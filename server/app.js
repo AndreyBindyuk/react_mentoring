@@ -3,6 +3,7 @@ const express = require('express');
 const app = express();
 
 if (process.env.NODE_ENV === 'development') {
+  console.log("____________________________HUI_______HUI__________________________________");
   const webpack = require('webpack');
   const webpackDevMiddleware = require('webpack-dev-middleware');
   const webpackHotMiddleware = require('webpack-hot-middleware');
