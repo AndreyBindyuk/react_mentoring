@@ -4,6 +4,7 @@ import {
   } from "./actionCreators";
   
   const initialState = {
+    loading: false,
     movies: [],
     error: "",
     movie: {}

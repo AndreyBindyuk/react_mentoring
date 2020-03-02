@@ -1,1 +1,1 @@
-export const ProxyURL = "https://reactjs-cdp.herokuapp.com/movies"
+export const ProxyURL = 'https://reactjs-cdp.herokuapp.com/movies';

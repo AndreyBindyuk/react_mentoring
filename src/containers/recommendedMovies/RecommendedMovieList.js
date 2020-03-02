@@ -1,12 +1,12 @@
-import React from "react";
-import MovieItem from "../../shared/movieItem/MovieItem";
-import { connect } from "react-redux";
-import { fetchRecommendedMovies } from "./fetchRecommendedMovieList";
-import { withRouter } from "react-router-dom";
+import React from 'react';
+import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
+import MovieItem from '../../shared/movieItem/MovieItem';
+import { fetchRecommendedMovies } from './fetchRecommendedMovieList';
 
 export class RecommendedMovieList extends React.Component {
   componentDidUpdate(prevProps, prevState) {
-    const movie = this.props.movie;
+    const { movie } = this.props;
     if (prevProps.movie !== movie) {
       this.props.fetchRecommendedMovies(this.props.movie);
     }
@@ -24,15 +24,15 @@ export class RecommendedMovieList extends React.Component {
 }
 
 const mapDispatchToProps = {
-  fetchRecommendedMovies: fetchRecommendedMovies
+  fetchRecommendedMovies,
 };
 
 const mapStateToProps = state => ({
   movie: state.movieItem.movie,
-  movieList: state.recommendedMovieList.movies
+  movieList: state.recommendedMovieList.movies,
 });
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  mapDispatchToProps,
 )(RecommendedMovieList);

@@ -1,6 +1,7 @@
 import { SORT_MOVIES_SUCCESS, SEARCH_MOVIES_SUCCESS } from "./actionCreators";
 
 const initialState = {
+  loading: false,
   error: "",
   search_by: "title",
   sort_by: "release_date",

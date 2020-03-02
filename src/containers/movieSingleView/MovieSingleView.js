@@ -1,26 +1,27 @@
-import React from "react";
-import "./MovieSingleView.css";
-import Rater from "react-rater";
-import "react-rater/lib/react-rater.css";
-import { fetchMovieItem } from "./fetchMovieItem";
-import { connect } from "react-redux";
-import { withRouter } from "react-router-dom";
-import { Link } from "react-router-dom";
+import React from 'react';
+import './MovieSingleView.css';
+import Rater from 'react-rater';
+import './react-rater.css';
+import { connect } from 'react-redux';
+import { withRouter, Link } from 'react-router-dom';
+
+import { bindActionCreators } from 'redux';
+import { fetchItem } from './fetchMovieItem';
 
 export class MovieSingleView extends React.Component {
   constructor(props) {
     super(props);
   }
 
-  componentDidMount() {
+  componentWillMount() {
     const { id } = this.props.match.params;
-    this.props.fetchMovie(id);
+    this.props.fetchItem(id);
   }
 
   componentDidUpdate(prevProps, prevState) {
     if (prevProps.match.params !== this.props.match.params) {
       const { id } = this.props.match.params;
-      this.props.fetchMovie(id);
+      this.props.fetchItem(id);
     }
   }
 
@@ -31,7 +32,7 @@ export class MovieSingleView extends React.Component {
       genres,
       poster_path,
       vote_count,
-      overview
+      overview,
     } = this.props.movie;
     return (
       <div className="movie-view-container">
@@ -63,17 +64,22 @@ export class MovieSingleView extends React.Component {
   }
 }
 
-const mapDispatchToProps = {
-  fetchMovie: fetchMovieItem
-};
+// const mapDispatchToProps = {
+//   fetchMovie: fetchMovieItem
+// };
+
+const mapDispatchToProps = dispatch => bindActionCreators({
+  fetchItem,
+}, dispatch);
 
 const mapStateToProps = state => ({
-  movie: state.movieItem.movie
+  movie: state.movieItem.movie,
+  loading: state.movieItem.loading,
 });
 
 export default withRouter(
   connect(
     mapStateToProps,
-    mapDispatchToProps
-  )(MovieSingleView)
+    mapDispatchToProps,
+  )(MovieSingleView),
 );
