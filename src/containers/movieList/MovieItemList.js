@@ -8,7 +8,6 @@ import MovieItem from '../../shared/movieItem/MovieItem';
 
 export class MovieItemList extends React.Component {
   componentWillMount() {
-    console.log('hUETAAAAAA');
     const { sorting, searching, query } = this.props;
     this.props.fetchMovies(sorting, searching, query);
   }
